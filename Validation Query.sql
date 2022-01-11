@@ -1,0 +1,23 @@
+---Validate the DataBase---
+---------------------------
+with VALIDATE_DB AS (
+SELECT 'Categories' as "Table", COUNT(*) as "Record Count" FROM "CATEGORIES"
+UNION
+SELECT 'Customer Grouping', COUNT(*) FROM "GROUPING"
+UNION
+SELECT 'Customers', COUNT(*) FROM "CUSTOMERS"
+UNION
+SELECT 'Employees', COUNT(*) FROM "EMPLOYEES"
+UNION
+SELECT 'Order HDR', COUNT(*) FROM "ORDERHDR"
+UNION
+SELECT 'Orders', COUNT(*) FROM "ORDERS"
+UNION
+SELECT 'Products', COUNT(*) FROM "PRODUCTS"
+UNION
+SELECT 'Shippers', COUNT(*) FROM "SHIPPERS"
+UNION
+SELECT 'Suppliers', COUNT(*) FROM "SUPPLIERS")
+SELECT * FROM VALIDATE_DB
+UNION
+SELECT 'Total', SUM("Record Count") FROM VALIDATE_DB
